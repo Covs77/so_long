@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 18:26:10 by cova              #+#    #+#             */
-/*   Updated: 2023/06/20 21:20:34 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/11/29 19:17:05 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void	ft_bzero(void *s, size_t n)
+void	ft_gnl_bzero(void *s, size_t n)
 {
 	unsigned char	*s1;
 	size_t			pos;
@@ -30,7 +30,7 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-int	ft_strlen(char *str)
+int	ft_gnl_strlen(char *str)
 {
 	int	i;
 
@@ -42,7 +42,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_gnl_strjoin(char *s1, char *s2)
 {
 	char	*s3;
 	int		len_s2;
@@ -55,10 +55,10 @@ char	*ft_strjoin(char *s1, char *s2)
 		s1 = malloc (1);
 		if (!s1)
 			return (free(s1), NULL);
-		ft_bzero(s1, 1);
+		ft_gnl_bzero(s1, 1);
 	}
-	len_s1 = ft_strlen (s1);
-	len_s2 = ft_strlen (s2);
+	len_s1 = ft_gnl_strlen (s1);
+	len_s2 = ft_gnl_strlen (s2);
 	s3 = malloc (sizeof(char) * (len_s1 + len_s2) + 1);
 	if (s3 == NULL)
 		return (free(s1), NULL);
@@ -71,7 +71,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (free (s1), s3);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_gnl_strchr(const char *s, int c)
 {
 	char	cc;
 
@@ -87,31 +87,4 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-/* char	*ft_strjoin(char *s1, char *s2)
-{
-	size_t	s1_length;
-	char	*result;
-	int		i;
 
-	if (!s1)
-	{
-		s1 = malloc(1 * sizeof(char));
-		if (!s1)
-			return (free(s1), s1 = NULL, NULL);
-		ft_bzero(s1, 1);
-	}
-	if (!s1 || !s2)
-		return (free(s1), s1 = NULL, NULL);
-	s1_length = ft_strlen(s1);
-	result = (char *)malloc((s1_length + ft_strlen(s2) + 1) * sizeof(char));
-	if (!result)
-		return (free(s1), s1 = NULL, NULL);
-	i = -1;
-	while (s1[++i])
-		result[i] = s1[i];
-	i = -1;
-	while (s2[++i])
-		result[s1_length + i] = s2[i];
-	result[s1_length + i] = '\0';
-	return (free(s1), s1 = NULL, result);
-} */

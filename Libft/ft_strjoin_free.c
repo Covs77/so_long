@@ -6,11 +6,12 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:26:48 by cleguina          #+#    #+#             */
-/*   Updated: 2023/11/28 20:26:56 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/11/29 20:39:15 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strjoin_free(char *s1, char *s2)
 {

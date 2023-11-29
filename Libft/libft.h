@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 13:32:10 by cleguina          #+#    #+#             */
-/*   Updated: 2023/11/28 20:27:11 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/11/29 20:34:02 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 typedef struct s_list
 {
@@ -44,7 +49,7 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 long int	ft_atoi(const char *str);
 char		*ft_strnstr(const char *s1, const char *s2, size_t len);
 void		*ft_calloc(size_t count, size_t size);
-char		*ft_strdup(const char *s1);
+char		*ft_strdup(char *s1);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
@@ -67,5 +72,15 @@ void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int			ft_strcmp(char *s1, char *s2);
 char		*ft_strjoin_free(char *s1, char *s2);
+char		*get_next_line(int fd);
+char		*ft_read_from_buffer(int fd, char *stack);
+char		*ft_get_line(char *stack);
+char		*ft_clear_stack(char *stack);
+void		ft_gnl_bzero(void *s, size_t n);
+int			ft_gnl_strlen(char *str);
+char		*ft_gnl_strjoin(char *s1, char *s2);
+char		*ft_gnl_strchr(const char *s, int c);
+
+
 
 #endif

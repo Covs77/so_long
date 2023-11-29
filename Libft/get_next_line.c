@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:19:01 by cleguina          #+#    #+#             */
-/*   Updated: 2023/06/20 21:26:53 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/11/29 19:16:24 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "libft.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
@@ -28,7 +28,7 @@ char	*ft_clear_stack(char *stack)
 		len_line++;
 	if (!stack[len_line])
 		return (free(stack), stack = NULL, NULL);
-	len_stack = ft_strlen(stack);
+	len_stack = ft_gnl_strlen(stack);
 	new = malloc (sizeof (char) * (len_stack - len_line + 1));
 	if (!new)
 		return (free(stack), stack = NULL, NULL);
@@ -52,9 +52,9 @@ char	*ft_read_from_buffer(int fd, char *stack)
 	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!buffer)
 		return (free(stack), stack = NULL, NULL);
-	ft_bzero(buffer, BUFFER_SIZE + 1);
+	ft_gnl_bzero(buffer, BUFFER_SIZE + 1);
 	ck_read = 1;
-	while (ck_read > 0 && !ft_strchr(buffer, '\n'))
+	while (ck_read > 0 && !ft_gnl_strchr(buffer, '\n'))
 	{
 		ck_read = read (fd, buffer, BUFFER_SIZE);
 		if (ck_read < 0)
@@ -64,7 +64,7 @@ char	*ft_read_from_buffer(int fd, char *stack)
 		if (ck_read == 0)
 			break ;
 		buffer[ck_read] = '\0';
-		stack = ft_strjoin(stack, buffer);
+		stack = ft_gnl_strjoin(stack, buffer);
 		if (!stack)
 			return (free(stack), stack = NULL, free(buffer), NULL);
 	}
@@ -100,28 +100,28 @@ char	*ft_get_line(char *stack)
 
 char	*get_next_line(int fd)
 {
-	static char	*stack[2048];
+	static char	*stack = NULL;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (read(fd, 0, 0) < 0)
 	{
-		if (stack[fd] != NULL)
+		if (stack != NULL)
 		{
-			free(stack[fd]);
-			stack[fd] = NULL;
+			free(stack);
+			stack = NULL;
 		}
 		return (NULL);
 	}
-	stack[fd] = ft_read_from_buffer(fd, stack[fd]);
-	if (!stack[fd])
-		return (free(stack[fd]), stack[fd] = NULL, NULL);
-	line = ft_get_line(stack[fd]);
+	stack = ft_read_from_buffer(fd, stack);
+	if (!stack)
+		return (free(stack), stack = NULL, NULL);
+	line = ft_get_line(stack);
 	if (!line)
-		return (free(stack[fd]), stack[fd] = NULL, line);
-	stack[fd] = ft_clear_stack(stack[fd]);
-	if (!stack[fd])
-		return (free(stack[fd]), stack[fd] = NULL, line);
+		return (free(stack), stack = NULL, line);
+	stack = ft_clear_stack(stack);
+	if (!stack)
+		return (free(stack), stack = NULL, line);
 	return (line);
 }
