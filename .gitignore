@@ -1,0 +1,9 @@
+*.a
+*.o
+.DsStore
+*.swp
+*.log
+*.out
+*.pid
+.vscode
+
