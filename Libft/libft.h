@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 13:32:10 by cleguina          #+#    #+#             */
-/*   Updated: 2023/11/29 20:34:02 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/01 19:40:08 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void		ft_gnl_bzero(void *s, size_t n);
 int			ft_gnl_strlen(char *str);
 char		*ft_gnl_strjoin(char *s1, char *s2);
 char		*ft_gnl_strchr(const char *s, int c);
+void		ft_free_matrix(char **str);
 
 
 

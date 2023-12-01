@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:01:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/11/29 20:31:11 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/01 19:45:03 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_point
 
 /* leaks.c */
 int		main(int argc, char **argv);
-void	ft_error (void);
+void	ft_error (int error);
 void	ft_parse (int argc, char *argv);
 char	*ft_read_map(int fd);
 

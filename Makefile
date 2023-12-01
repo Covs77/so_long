@@ -3,12 +3,24 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+         #
+#    By: cova <cova@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 19:54:55 by cleguina          #+#    #+#              #
-#    Updated: 2023/11/29 19:00:09 by cleguina         ###   ########.fr        #
+#    Updated: 2023/12/01 19:50:06 by cova             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# Colors
+BOLD	:= \033[1m
+BLACK	:= \033[30;1m
+RED		:= \033[31;1m
+GREEN	:= \033[32;1m
+YELLOW	:= \033[33;1m
+BLUE	:= \033[34;1m
+MAGENTA	:= \033[35;1m
+CYAN	:= \033[36;1m
+WHITE	:= \033[37;1m
+RESET	:= \033[0m
 
 
 # nombre programa

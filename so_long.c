@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:34:57 by cleguina          #+#    #+#             */
-/*   Updated: 2023/11/29 21:02:22 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/01 20:05:04 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,21 @@
 #include "Libft/libft.h"
 
 
-void ft_error (void)
+void ft_error (int error)
 {
-	write (2, "Error\n", 6);
+	
+	if (error == 1) 
+		write (2, "Error\nWrong number of arguments\n", 33);
+	if (error == 2)
+		write (2, "Error\nWrong file name\n", 23);
+	if (error == 3)
+		write (2, "Error\nWrong file descriptor\n", 29);
+	if (error == 4)
+		write (2, "Error\nEmpty file\n", 18);
+	if (error == 5)
+		write (2, "Error\nWrong map\n", 17);
+	if (error == 6)
+		write (2, "Error\nMalloc error\n", 20);	
 	exit(-1);
 }
 
@@ -47,7 +59,7 @@ char *ft_read_map(int fd)
 	if (!line)
 	{
 		free(line);
-		ft_error();
+		ft_error(6);
 	}
 	str = NULL;
 	str = ft_strjoin_free(str, line);
@@ -67,8 +79,10 @@ void ft_check_map(char *str)
 	i = 0;
 	while(str[i] != '\0')
 	{
-		if (str[i] != '1' && str[i] != '0' && str[i] != 'C' && str[i] != 'E' && str[i] != 'P')
-			ft_error();
+		if (str[i] != '1' && str[i] != '0' && str[i] != 'C' && str[i] != 'E' && str[i] != 'P' && str[i] != '\n')
+		{	free(str);
+			ft_error(5);
+		}
 		else 
 			i++;
 	}
@@ -84,28 +98,29 @@ void ft_parse (int argc, char **argv)
 	//int i;
 	
 	if (argc != 2)
-		ft_error();
+		ft_error(1);
 	if (ft_check_file (argv[1]) == 1)
-		ft_error();
+		ft_error(5);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
 		close(fd);
-		ft_error();
+		ft_error(3);
 	}
 	str = NULL;
 	str = ft_read_map(fd);
 	ft_check_map(str);
+	printf("%s\n", str);
 }
 
-/* void ft_l(void)
+void ft_l(void)
 {
 	system("leaks so_long");
 
-} */
+} 
 int main(int argc, char **argv)
 {
-	//ft_l();
+	ft_l();
 	ft_parse(argc, argv);
 	
 	return (0);

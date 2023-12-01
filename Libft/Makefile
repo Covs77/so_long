@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+         #
+#    By: cova <cova@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 17:58:22 by cleguina          #+#    #+#              #
-#    Updated: 2023/11/29 20:33:15 by cleguina         ###   ########.fr        #
+#    Updated: 2023/12/01 19:40:23 by cova             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 	ft_lstmap.c ft_strcmp.c ft_strjoin_free.c get_next_line.c \
-	get_next_line_utils.c
+	get_next_line_utils.c ft_free_matrix.c
 	
 	
 
