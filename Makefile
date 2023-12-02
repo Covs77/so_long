@@ -6,7 +6,7 @@
 #    By: cova <cova@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 19:54:55 by cleguina          #+#    #+#              #
-#    Updated: 2023/12/01 19:50:06 by cova             ###   ########.fr        #
+#    Updated: 2023/12/02 12:32:25 by cova             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ LIBFT_PATH		= $(LIBFT_DIR)/libft.a
 
 
 
-SRC = so_long.c
+SRC = so_long.c so_long_parse.c so_long_read_map.c so_long_utils.c so_long_check_map.c \
+
 
 OBJS = $(SRC:.c=.o)
 
