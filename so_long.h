@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:01:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/02 14:54:10 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/04 20:57:02 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-
-
-//# include "../MLX42/include/MLX42/MLX42.h"
+# include "MLX42/include/MLX42/MLX42.h"
 
 /* Define window size */
 /* # define WIDTH 50
@@ -46,6 +44,15 @@ typedef struct s_point
 	int		y;
 }	t_point;
 
+
+typedef struct s_board
+{
+	char	**map;
+	int		x;
+	int		y;
+	int		collect;
+}				t_board;
+
 /* leaks.c */
 int		main(int argc, char **argv);
 void	ft_error(int error);
@@ -63,6 +70,10 @@ void	ft_check_border(char **map);
 void	ft_check_lines_map(char **map);
 int		ft_only_one(char *str);
 int 	ft_first_last_row(char *line);
+void	ft_check_collectibles(char *str);
+void	ft_game (t_board *board);
+void	init_board(t_board *board);
+void	ft_map_size(t_board *board, char **map);
 
 
 #endif

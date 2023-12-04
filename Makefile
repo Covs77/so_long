@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cova <cova@student.42.fr>                  +#+  +:+       +#+         #
+#    By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 19:54:55 by cleguina          #+#    #+#              #
-#    Updated: 2023/12/02 12:32:25 by cova             ###   ########.fr        #
+#    Updated: 2023/12/04 20:14:17 by cleguina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,13 @@ LIB = ar rcs
 LIBFT_DIR = ./Libft
 LIBFT_PATH		= $(LIBFT_DIR)/libft.a
 
+LIBMLX_DIR = ./MLX42
+LIBMLX_PATH = $(LIBMLX_DIR)/libmlx42.a
 
+LIB_SYS		:= -Iinclude -lglfw -L "/Users/cleguina/.brew/opt/glfw/lib/"
 
 SRC = so_long.c so_long_parse.c so_long_read_map.c so_long_utils.c so_long_check_map.c \
+so_long_game.c 
 
 
 OBJS = $(SRC:.c=.o)
@@ -53,8 +57,8 @@ OBJS = $(SRC:.c=.o)
 
 
 
-$(NAME): $(LIBFT_PATH) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_PATH) -o $(NAME)
+$(NAME): $(LIBFT_PATH) $(LIBMLX_PATH) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_PATH) $(LIB_SYS) $(LIBMLX_PATH)  -o $(NAME)
 
 $(OBJS): %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -62,23 +66,36 @@ $(OBJS): %.o: %.c
 $(LIBFT_PATH):
 			@make -s -C $(LIBFT_DIR)
 
+$(LIBMLX_PATH):
+			@make -s -C $(LIBMLX_DIR)
+
 
 
 # Agrega los archivos objeto a la lista de archivos secundarios
 all: $(NAME)
 
 clean:
-	$(MAKE) -C $(LIBFT_DIR) clean
-	rm -f $(OBJS)
+			@rm -f $(OBJS)
+# @echo "$(GREEN)$(BOLD)Done.$(RESET)"
+			@make clean -s -C $(LIBMLX_DIR)
+			@make clean -s -C $(LIBFT_DIR)
+			
+#	$(MAKE) -C $(LIBFT_DIR) $(LIBMLX_DIR) clean
+#	rm -f $(OBJS)
 
 
 fclean: clean
-	$(MAKE) -C $(LIBFT_DIR) fclean
+	@make fclean -s -C $(LIBMLX_DIR)
+	@make fclean -s -C $(LIBFT_DIR)
 	rm -f $(NAME)
+
+#	$(MAKE) -C $(LIBFT_DIR) $(LIBMLX_DIR) fclean
+#	rm -f $(NAME)
 
 re: fclean all
 
-bonus: $(NAME) $(BOBJS)
-	@ar rcs $(NAME) $(BOBJS)
+
+# bonus: $(NAME) $(BOBJS)
+#	@ar rcs $(NAME) $(BOBJS)
 	
 .PHONY: re all clean fclean 

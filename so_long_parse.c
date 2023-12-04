@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_parse.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:13:16 by cova              #+#    #+#             */
-/*   Updated: 2023/12/02 14:58:40 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/04 17:50:29 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void ft_check_map(char *str)
 {	
 	
 	ft_check_char_map(str);
+	ft_check_collectibles(str);
 	//printf("\nMapa chequeado, lineas y char\n");
 	//voy por aqui
 
@@ -83,5 +84,6 @@ char **ft_parse(int argc, char **argv)
 	str = ft_read_map_str(fd);
 	ft_check_map(str);
 	map = ft_map_matrix(str);
+	free(str);
    	return(map);
 }

@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_check_map.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:32:32 by cova              #+#    #+#             */
-/*   Updated: 2023/12/02 14:56:05 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/04 18:06:10 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "so_long.h"
+
+// cheque el numero de lineas y columnas del mapa (minimo 3x5)
 
 void ft_check_lines_map(char **map)
 {
@@ -39,6 +41,8 @@ void ft_check_lines_map(char **map)
 		i++;
 	}
 }
+
+// Chequea que los bordes del mapa sean 1
 void ft_check_border(char **map)
 {
     int i;
@@ -50,7 +54,6 @@ void ft_check_border(char **map)
     line = map[i];
 	while (line != NULL)
 	{		
-		printf("linea: %s\n", line);
 		if (i == 0 || i == nmb_lines-1)
         {
 		    if (ft_all_one(map[i]) == 1)
@@ -67,4 +70,21 @@ void ft_check_border(char **map)
 		i++;
 		line = map[i];
     }
+}
+
+//Busca que al menos haya un coleccionable
+
+void	ft_check_collectibles(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == 'C')
+			return;
+		else
+			i++;
+	}
+	ft_error(8);
 }
