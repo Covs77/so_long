@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:01:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/04 20:57:02 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:56:58 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,12 @@ void	ft_check_lines_map(char **map);
 int		ft_only_one(char *str);
 int 	ft_first_last_row(char *line);
 void	ft_check_collectibles(char *str);
-void	ft_game (t_board *board);
+//void	ft_game (t_board *board);
 void	init_board(t_board *board);
 void	ft_map_size(t_board *board, char **map);
+void 	ft_playable_map(char **map);
+int 	*ft_find_map(char **map, char c);
+void 	ft_print_pos(int *pos_player); 
 
 
 #endif

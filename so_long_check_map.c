@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_check_map.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:32:32 by cova              #+#    #+#             */
-/*   Updated: 2023/12/04 18:06:10 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:49:53 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "so_long.h"
 
-// cheque el numero de lineas y columnas del mapa (minimo 3x5)
+// chequeo el numero de lineas y columnas del mapa (minimo 3x5)
 
 void ft_check_lines_map(char **map)
 {

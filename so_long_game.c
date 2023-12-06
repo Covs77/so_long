@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 20:15:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/04 21:06:26 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:28:12 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,15 @@ void init_board(t_board *board)
 	
 	
 }
+/* 
+ft_cheak_board(board);
+{
+
+	ft_flood_fill(board);
+}
 
 void ft_game (t_board *board)
 {
-	t_board *board;
+	ft_cheak_board(board);
 	//// inicializar el juego, falta chequear si es jugable.
-}
+} */

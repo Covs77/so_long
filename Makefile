@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+         #
+#    By: cova <cova@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 19:54:55 by cleguina          #+#    #+#              #
-#    Updated: 2023/12/04 20:14:17 by cleguina         ###   ########.fr        #
+#    Updated: 2023/12/06 13:46:20 by cova             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,7 @@ LIBMLX_PATH = $(LIBMLX_DIR)/libmlx42.a
 LIB_SYS		:= -Iinclude -lglfw -L "/Users/cleguina/.brew/opt/glfw/lib/"
 
 SRC = so_long.c so_long_parse.c so_long_read_map.c so_long_utils.c so_long_check_map.c \
-so_long_game.c 
-
+so_long_game.c so_long_utils_2.c so_long_playable.c 
 
 OBJS = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:22:29 by cova              #+#    #+#             */
-/*   Updated: 2023/12/02 14:56:32 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/06 13:32:58 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int ft_all_one(char *line)
     int i;
     
     i = 0;
-    printf("linea(all one): %s\n", line);
     while (line[i] != '\0')
     {
         if (line[i] != '1')
@@ -87,9 +86,7 @@ int ft_first_last_row(char *line)
     int     len;
 
     len = ft_strlen(line);
-    printf("linea(first last row): %s\n", line);
     if (line[0] != '1' || line[len - 1] != '1')
         return (1);
     return (0);
-
 }
