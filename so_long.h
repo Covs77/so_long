@@ -6,7 +6,7 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:01:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/06 13:56:58 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/07 19:40:10 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_point
 {
 	int		x;
 	int		y;
-}	t_point;
+}			t_point;
 
 
 typedef struct s_board
@@ -75,8 +75,10 @@ void	ft_check_collectibles(char *str);
 void	init_board(t_board *board);
 void	ft_map_size(t_board *board, char **map);
 void 	ft_playable_map(char **map);
-int 	*ft_find_map(char **map, char c);
-void 	ft_print_pos(int *pos_player); 
+void	ft_find_map(char **map, char c, t_point *pos);
+void 	ft_print_pos(t_point pos_player); 
+void 	ft_init_pos (t_point **pos);
+char 	**ft_copy_map(char **map);
 
 
 #endif

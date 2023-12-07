@@ -6,14 +6,23 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 13:44:47 by cova              #+#    #+#             */
-/*   Updated: 2023/12/06 13:56:46 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/07 19:21:49 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_print_pos(int *pos_player)
+void ft_print_pos(t_point pos)
 {
-    printf("pos_player[0]: %d\n", pos_player[0]);
-    printf("pos_player[1]: %d\n", pos_player[1]);
+    printf("pos[X]: %d\n", pos.x);
+    printf("pos[Y]: %d\n", pos.y);
+}
+
+void ft_init_pos (t_point **pos)
+{
+    *pos = malloc(sizeof(t_point));
+    if (*pos == NULL) 
+		ft_error(6);
+    (*pos)->x = 0;
+    (*pos)->y = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:20:06 by cova              #+#    #+#             */
-/*   Updated: 2023/12/06 13:48:31 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/07 17:39:02 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,5 @@ char **ft_map_matrix(char *str)
     
     map = ft_split(str, '\n');
     ft_check_map_matrix(map);
-	ft_playable_map(map);
 	return (map);
 }

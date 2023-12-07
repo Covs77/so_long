@@ -6,7 +6,7 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:34:57 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/06 14:06:18 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/07 19:37:45 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void ft_error (int error)
 		perror("Error\nWrong map(more than 1 e or p)\n");
 	if (error == 8)
 		perror("Error\nNo collectibles\n");
+	if (error == 9)
+		perror("Error\nCopy map failure\n");
 	
 	exit(EXIT_FAILURE);
 }

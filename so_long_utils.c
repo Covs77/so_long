@@ -6,7 +6,7 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:22:29 by cova              #+#    #+#             */
-/*   Updated: 2023/12/06 13:32:58 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/07 17:48:08 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@ void ft_print_map(char **str)
     int i;
 
     i = 0;
-    if (str)
+    if (*str != NULL)
     {
         printf("Mapa (matriz)\n");
         while (str[i] != NULL)
         {
-           
-            printf("%s\n", str[i]);
-            i++;
+					printf("%s\n", str[i]);
+          i++;
         }
     }
 }

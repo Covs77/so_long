@@ -6,7 +6,7 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:13:16 by cova              #+#    #+#             */
-/*   Updated: 2023/12/06 14:04:17 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/07 19:18:05 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void ft_check_map(char *str)
 	
 	ft_check_char_map(str);
 	ft_check_collectibles(str);
-	
+		
 }
 
 char **ft_parse(int argc, char **argv)
@@ -84,8 +84,8 @@ char **ft_parse(int argc, char **argv)
 	ft_check_map(str);
 
 	map = ft_map_matrix(str);
+	ft_print_map(map);
 	ft_playable_map(map);
-	
 	free(str);
    	return(map);
 }
