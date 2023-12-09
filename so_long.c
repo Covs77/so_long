@@ -6,7 +6,7 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:34:57 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/09 14:19:08 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/09 15:31:19 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ int	main(int argc, char **argv)
 	board.map = ft_parse(argc, argv);
 	ft_print_map(board.map);
 	//ft_game(&board);
-	ft_free_matrix(board.map);
+	//ft_free_matrix(board.map);
 	atexit(ft_l);
 }

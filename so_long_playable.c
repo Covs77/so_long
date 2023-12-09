@@ -6,7 +6,7 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 13:39:46 by cova              #+#    #+#             */
-/*   Updated: 2023/12/09 14:56:51 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/09 15:33:38 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,6 @@ void	ft_playable_map(char **map)
 	t_point	*size;
 	char	**map_copy;
 
-	map_copy = ft_copy_map(map);
-	pos_player = NULL;
-	pos_exit = NULL;
-	size = NULL;
 	ft_init_pos (&pos_player);
 	ft_init_pos (&pos_exit);
 	ft_init_pos (&size);
@@ -92,6 +88,12 @@ void	ft_playable_map(char **map)
 	ft_find_map(map, 'E', pos_exit);
 	size->x = ft_strlen(map[0]);
 	size->y = ft_matrix_lines(map);
+	if (size->x == size->y)
+	{
+		ft_free_matrix(map);
+		ft_error(5);
+	}
+	map_copy = ft_copy_map(map);
 	flood_fill (map_copy, *size, *pos_player);
 	ft_way_out(map_copy, *pos_exit);
 	ft_collect_all(map_copy, map);

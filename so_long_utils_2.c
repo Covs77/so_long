@@ -6,7 +6,7 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 13:44:47 by cova              #+#    #+#             */
-/*   Updated: 2023/12/09 15:03:40 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/09 15:29:44 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@
 
 void	ft_init_pos(t_point **pos)
 {
+	*pos = NULL;
 	*pos = malloc(sizeof(t_point));
 	if (*pos == NULL)
+	{
+		free(*pos);
 		ft_error(6);
+	}
 	(*pos)->x = 0;
 	(*pos)->y = 0;
 }
