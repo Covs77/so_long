@@ -6,17 +6,17 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:20:06 by cova              #+#    #+#             */
-/*   Updated: 2023/12/07 17:39:02 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/09 14:59:05 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char *ft_read_map_str(int fd)
+char	*ft_read_map_str(int fd)
 {
 	char	*line;
 	char	*str;
-	
+
 	line = get_next_line(fd);
 	if (!line)
 	{
@@ -35,21 +35,17 @@ char *ft_read_map_str(int fd)
 	return (str);
 }
 
-void ft_check_map_matrix(char **map)
+void	ft_check_map_matrix(char **map)
 {
- 
-    ft_check_lines_map(map);
-    ft_check_border(map);
-
-    
+	ft_check_lines_map(map);
+	ft_check_border(map);
 }
 
-
-char **ft_map_matrix(char *str)
+char	**ft_map_matrix(char *str)
 {
-    char **map;
-    
-    map = ft_split(str, '\n');
-    ft_check_map_matrix(map);
+	char	**map;
+
+	map = ft_split(str, '\n');
+	ft_check_map_matrix(map);
 	return (map);
 }

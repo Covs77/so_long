@@ -6,7 +6,7 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:01:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/07 19:40:10 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/09 14:54:02 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,11 @@
 # define WHITE    "\033[37;1m"
 # define RESET    "\033[0m" 
 
-
-
 typedef struct s_point
 {
 	int		x;
 	int		y;
 }			t_point;
-
 
 typedef struct s_board
 {
@@ -56,29 +53,31 @@ typedef struct s_board
 /* leaks.c */
 int		main(int argc, char **argv);
 void	ft_error(int error);
-char 	**ft_parse(int argc, char **argv);
-char 	*ft_read_map_str(int fd);
-void 	ft_check_char_map(char *str);
-void 	ft_check_map(char *str);
+char	**ft_parse(int argc, char **argv);
+char	*ft_read_map_str(int fd);
+void	ft_check_char_map(char *str);
+void	ft_check_map(char *str);
 int		ft_check_file_name(char *str);
-void 	ft_print_map(char **str);
+void	ft_print_map(char **str);
 char	**ft_map_matrix(char *str);
-void 	ft_check_map_matrix(char **map);
-int 	ft_matrix_lines(char **map);
-int 	ft_all_one(char *line);
+void	ft_check_map_matrix(char **map);
+int		ft_matrix_lines(char **map);
+int		ft_all_one(char *line);
 void	ft_check_border(char **map);
 void	ft_check_lines_map(char **map);
 int		ft_only_one(char *str);
-int 	ft_first_last_row(char *line);
+int		ft_first_last_row(char *line);
 void	ft_check_collectibles(char *str);
 //void	ft_game (t_board *board);
 void	init_board(t_board *board);
 void	ft_map_size(t_board *board, char **map);
-void 	ft_playable_map(char **map);
+void	ft_playable_map(char **map);
 void	ft_find_map(char **map, char c, t_point *pos);
-void 	ft_print_pos(t_point pos_player); 
-void 	ft_init_pos (t_point **pos);
-char 	**ft_copy_map(char **map);
-
+//void	ft_print_pos(t_point pos_player);
+void	ft_init_pos(t_point **pos);
+char	**ft_copy_map(char **map);
+void	flood_fill(char **map, t_point size, t_point pos);
+void	ft_way_out(char **map, t_point pos);
+void	ft_collect_all(char **map_copy, char **map);
 
 #endif

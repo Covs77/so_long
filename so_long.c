@@ -6,22 +6,21 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:34:57 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/07 19:37:45 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/09 14:19:08 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <unistd.h>
 
-void ft_l(void)
+void	ft_l(void)
 {
 	system("leaks so_long");
+}
 
-} 
-
-void ft_error (int error)
+void	ft_error(int error)
 {
-	if (error == 1) 
+	if (error == 1)
 		perror("Error:\nWrong number of arguments\n");
 	if (error == 2)
 		perror("Error\nWrong file name\n");
@@ -39,17 +38,15 @@ void ft_error (int error)
 		perror("Error\nNo collectibles\n");
 	if (error == 9)
 		perror("Error\nCopy map failure\n");
-	
+	if (error == 10)
+		perror("Error\nNo playable map\n");
 	exit(EXIT_FAILURE);
 }
 
-
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_board board;
-	
-	
+	t_board	board;
+
 	init_board(&board);
 	board.map = ft_parse(argc, argv);
 	ft_print_map(board.map);

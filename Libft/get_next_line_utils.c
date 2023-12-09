@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 18:26:10 by cova              #+#    #+#             */
-/*   Updated: 2023/11/29 19:17:05 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/09 15:11:33 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,3 @@ char	*ft_gnl_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
-
-
