@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:01:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/09 14:54:02 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/12 19:44:52 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+# define P 50
 # include "Libft/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
@@ -42,13 +43,35 @@ typedef struct s_point
 	int		y;
 }			t_point;
 
+typedef struct s_texture
+{
+	mlx_texture_t	*ply;
+	mlx_texture_t	*floor;
+	mlx_texture_t	*wall;
+	mlx_texture_t	*co;
+	mlx_texture_t	*ex;
+}								t_texture;
+
+typedef struct s_image
+{
+	mlx_image_t	*ply;
+	mlx_image_t	*floor;
+	mlx_image_t	*wall;
+	mlx_image_t	*co;
+	mlx_image_t	*ex;
+}							t_image;
+
 typedef struct s_board
 {
-	char	**map;
-	int		x;
-	int		y;
-	int		collect;
+	char		**map;
+	mlx_t		*mlx;
+	t_point		dim;
+	t_texture	tex;
+	t_image		im;
+	int			collect;
 }				t_board;
+
+
 
 /* leaks.c */
 int		main(int argc, char **argv);
@@ -68,9 +91,9 @@ void	ft_check_lines_map(char **map);
 int		ft_only_one(char *str);
 int		ft_first_last_row(char *line);
 void	ft_check_collectibles(char *str);
-//void	ft_game (t_board *board);
+void	ft_game (t_board *board);
 void	init_board(t_board *board);
-void	ft_map_size(t_board *board, char **map);
+void	ft_map_size(t_board *board);
 void	ft_playable_map(char **map);
 void	ft_find_map(char **map, char c, t_point *pos);
 //void	ft_print_pos(t_point pos_player);
@@ -79,5 +102,7 @@ char	**ft_copy_map(char **map);
 void	flood_fill(char **map, t_point size, t_point pos);
 void	ft_way_out(char **map, t_point pos);
 void	ft_collect_all(char **map_copy, char **map);
+void	ft_load_tex(t_board *board);
+void	ft_txt_to_img(t_board *board);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:34:57 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/09 15:31:19 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/12 19:31:20 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ int	main(int argc, char **argv)
 
 	init_board(&board);
 	board.map = ft_parse(argc, argv);
+	
 	ft_print_map(board.map);
-	//ft_game(&board);
-	//ft_free_matrix(board.map);
+	ft_game(&board);
+	ft_free_matrix(board.map);
 	atexit(ft_l);
 }
