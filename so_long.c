@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:34:57 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/12 19:31:20 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/13 20:04:38 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_l(void)
 {
-	system("leaks so_long");
+	system("leaks -q so_long");
 }
 
 void	ft_error(int error)
@@ -40,6 +40,8 @@ void	ft_error(int error)
 		perror("Error\nCopy map failure\n");
 	if (error == 10)
 		perror("Error\nNo playable map\n");
+	if (error == 11)
+		perror("Error\nCan`t draw map\n");
 	exit(EXIT_FAILURE);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:01:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/12 19:44:52 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/13 20:15:22 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,9 @@ char	**ft_copy_map(char **map);
 void	flood_fill(char **map, t_point size, t_point pos);
 void	ft_way_out(char **map, t_point pos);
 void	ft_collect_all(char **map_copy, char **map);
-void	ft_load_tex(t_board *board);
-void	ft_txt_to_img(t_board *board);
+void	ft_load_board(t_board *board);
+void	ft_draw_map(t_board *board, char **map, int i, int j);
+void	ft_draw_play_ex(t_board *board, char **map, int i, int j);
+void	ft_draw_playground(t_board *b, char **map);
 
 #endif

@@ -6,9 +6,11 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 20:15:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/12 20:27:34 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/13 20:10:44 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "so_long.h"
 
@@ -48,8 +50,8 @@ void ft_game (t_board *board)
 		ft_free_matrix(board->map);
 		ft_error(5);
 	}
-	ft_load_tex(board);
-	ft_txt_to_img(board);
+	ft_load_board(board);
+	ft_draw_playground(board, board->map);
 	//g_img = mlx_new_image(board->mlx, 128, 128);
 	//mlx_loop_hook(board->mlx, g_img, board);
 	mlx_loop(board->mlx);
