@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:34:57 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/13 20:04:38 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/13 20:58:24 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(int argc, char **argv)
 
 	init_board(&board);
 	board.map = ft_parse(argc, argv);
-	
+	ft_count_collect(&board);
 	ft_print_map(board.map);
 	ft_game(&board);
 	ft_free_matrix(board.map);

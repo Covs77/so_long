@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 13:44:47 by cova              #+#    #+#             */
-/*   Updated: 2023/12/09 15:29:44 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/13 21:00:35 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-/* void ft_print_pos(t_point pos)
+void ft_print_pos(t_point pos)
 {
     printf("pos[X]: %d\n", pos.x);
     printf("pos[Y]: %d\n", pos.y);
-} */
+} 
 
 void	ft_init_pos(t_point **pos)
 {
@@ -48,6 +48,25 @@ void	ft_find_map(char **map, char c, t_point *pos)
 				pos->x = j;
 				return ;
 			}
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+}
+void	ft_count_collect(t_board *b)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (b->map[i] != NULL)
+	{
+		while (b->map[i][j] != '\0')
+		{
+			if (b->map[i][j] == 'C')
+				b->collect++;
 			j++;
 		}
 		j = 0;

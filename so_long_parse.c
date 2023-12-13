@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:13:16 by cova              #+#    #+#             */
-/*   Updated: 2023/12/12 18:24:11 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/13 20:57:17 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	ft_check_map(char *str)
 	ft_check_char_map(str);
 	ft_check_collectibles(str);
 }
+
+
 
 char	**ft_parse(int argc, char **argv)
 {

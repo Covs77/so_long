@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 20:15:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/13 20:10:44 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/13 20:46:42 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void ft_game (t_board *board)
 	}
 	ft_load_board(board);
 	ft_draw_playground(board, board->map);
+	ft_accion_player(board);
 	//g_img = mlx_new_image(board->mlx, 128, 128);
 	//mlx_loop_hook(board->mlx, g_img, board);
 	mlx_loop(board->mlx);
