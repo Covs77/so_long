@@ -6,7 +6,7 @@
 #    By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 19:54:55 by cleguina          #+#    #+#              #
-#    Updated: 2023/12/13 20:13:38 by cleguina         ###   ########.fr        #
+#    Updated: 2023/12/14 19:38:16 by cleguina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,9 @@ LIB = ar rcs
 LIBFT_DIR = ./Libft
 LIBFT_PATH		= $(LIBFT_DIR)/libft.a
 
+PRINTF_DIR = ./Printf
+PRINTFT_PATH		= $(PRINTF_DIR)/pibft.a
+
 LIBMLX_DIR = ./MLX42
 LIBMLX_PATH = $(LIBMLX_DIR)/libmlx42.a
 
@@ -44,7 +47,7 @@ LIB_SYS		:= -Iinclude -lglfw -L "/Users/cleguina/.brew/opt/glfw/lib/"
 
 SRC = so_long.c so_long_parse.c so_long_read_map.c so_long_utils.c \
 so_long_check_map.c so_long_game.c so_long_utils_2.c so_long_playable.c \
-so_long_playground.c so_long_draw.c \
+so_long_playground.c so_long_draw.c so_long_move_it.c \
 
 OBJS = $(SRC:.c=.o)
 
@@ -57,8 +60,8 @@ OBJS = $(SRC:.c=.o)
 
 
 
-$(NAME): $(LIBFT_PATH) $(LIBMLX_PATH) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_PATH) $(LIB_SYS) $(LIBMLX_PATH)  -o $(NAME)
+$(NAME): $(LIBFT_PATH) $(PRINTF_PATH) $(LIBMLX_PATH) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_PATH) $(PRINTF_PATH) $(LIB_SYS) $(LIBMLX_PATH)  -o $(NAME)
 
 $(OBJS): %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -66,6 +69,9 @@ $(OBJS): %.o: %.c
 $(LIBFT_PATH):
 			@make -s -C $(LIBFT_DIR)
 
+$(PRINTF_PATH):
+			@make -s -C $(PRINTF_DIR)
+			
 $(LIBMLX_PATH):
 			@make -s -C $(LIBMLX_DIR)
 
@@ -79,6 +85,7 @@ clean:
 # @echo "$(GREEN)$(BOLD)Done.$(RESET)"
 			@make clean -s -C $(LIBMLX_DIR)
 			@make clean -s -C $(LIBFT_DIR)
+			@make clean -s -C $(PRINTF_DIR)
 			
 #	$(MAKE) -C $(LIBFT_DIR) $(LIBMLX_DIR) clean
 #	rm -f $(OBJS)
@@ -87,6 +94,7 @@ clean:
 fclean: clean
 	@make fclean -s -C $(LIBMLX_DIR)
 	@make fclean -s -C $(LIBFT_DIR)
+	@make fclean -s -C $(PRINTF_DIR)
 	rm -f $(NAME)
 
 #	$(MAKE) -C $(LIBFT_DIR) $(LIBMLX_DIR) fclean

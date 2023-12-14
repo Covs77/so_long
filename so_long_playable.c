@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_playable.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 13:39:46 by cova              #+#    #+#             */
-/*   Updated: 2023/12/09 15:33:38 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/14 19:33:47 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 char	**ft_copy_map(char **map)
-{	
+{
 	int		i;
 	char	**map_copy;
 

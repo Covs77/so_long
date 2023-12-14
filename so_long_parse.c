@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:13:16 by cova              #+#    #+#             */
-/*   Updated: 2023/12/13 20:57:17 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:55:31 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,15 @@ void	ft_check_char_map(char *str)
 	if (error == 1)
 	{
 		free(str);
-		ft_error(7);
+		ft_error(5);
 	}
 }
 
 void	ft_check_map(char *str)
-{	
+{
 	ft_check_char_map(str);
 	ft_check_collectibles(str);
 }
-
-
 
 char	**ft_parse(int argc, char **argv)
 {
@@ -71,7 +69,7 @@ char	**ft_parse(int argc, char **argv)
 	if (argc != 2)
 		ft_error(1);
 	if (ft_check_file_name(argv[1]) == 1)
-		ft_error(5);
+		ft_error(2);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{

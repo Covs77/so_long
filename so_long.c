@@ -6,44 +6,45 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:34:57 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/13 20:58:24 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:16:50 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <unistd.h>
 
-void	ft_l(void)
+/* void	ft_l(void)
 {
 	system("leaks -q so_long");
-}
-
+} */
 void	ft_error(int error)
 {
 	if (error == 1)
-		perror("Error:\nWrong number of arguments\n");
+		write(2, "Error: Wrong number of arguments\n", 33);
 	if (error == 2)
-		perror("Error\nWrong file name\n");
+		write(2, "Erro: Wrong file name\n", 22);
 	if (error == 3)
-		perror("Error\nCan`t open file\n");
+		write(2, "Error: Can`t open file\n", 23);
 	if (error == 4)
-		perror("Error\nEmpty file\n");
+		write(2, "Error: The map is an empty file\n", 32);
 	if (error == 5)
-		perror("Error\nWrong map (lines size)\n");
+		write(2, "Error: Wrong map\n", 17);
 	if (error == 6)
-		perror("Error\nMalloc error\n");
+		write(2, "Error: Malloc error\n", 20);
 	if (error == 7)
-		perror("Error\nWrong map(more than 1 e or p)\n");
+		write(2, "Error: Wrong number of player or exit\n", 38);
 	if (error == 8)
-		perror("Error\nNo collectibles\n");
+		write(2, "Error: No collectibles\n", 24);
 	if (error == 9)
-		perror("Error\nCopy map failure\n");
+		write(2, "Error: Copy map failure\n", 25);
 	if (error == 10)
-		perror("Error\nNo playable map\n");
+		write(2, "Error: No playable map\n", 23);
 	if (error == 11)
-		perror("Error\nCan`t draw map\n");
+		write(2, "Error: Can`t draw map\n", 22);
 	exit(EXIT_FAILURE);
 }
+
+// Añadir atexit(ft_l); al final de main  para checkear leaks
 
 int	main(int argc, char **argv)
 {
@@ -52,8 +53,6 @@ int	main(int argc, char **argv)
 	init_board(&board);
 	board.map = ft_parse(argc, argv);
 	ft_count_collect(&board);
-	ft_print_map(board.map);
 	ft_game(&board);
 	ft_free_matrix(board.map);
-	atexit(ft_l);
 }

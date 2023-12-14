@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:01:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/13 20:58:36 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/14 21:19:28 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,10 @@ typedef struct s_board
 	t_texture	tex;
 	t_image		im;
 	int			collect;
+	int			moves;
+	int			flag;
 }				t_board;
 
-
-
-/* leaks.c */
 int		main(int argc, char **argv);
 void	ft_error(int error);
 char	**ft_parse(int argc, char **argv);
@@ -91,7 +90,7 @@ void	ft_check_lines_map(char **map);
 int		ft_only_one(char *str);
 int		ft_first_last_row(char *line);
 void	ft_check_collectibles(char *str);
-void	ft_game (t_board *board);
+void	ft_game(t_board *board);
 void	init_board(t_board *board);
 void	ft_map_size(t_board *board);
 void	ft_playable_map(char **map);
@@ -110,5 +109,8 @@ void	ft_move_player(t_board *b, int x, int y);
 void	ft_key_hook(mlx_key_data_t keydata, void *b);
 void	ft_accion_player(t_board *b);
 void	ft_count_collect(t_board *b);
+void	ft_print_moves(int moves);
+//void	ft_move(t_board *b, t_point pos, int x, int y);
+void	ft_l(void);
 
 #endif

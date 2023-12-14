@@ -6,11 +6,9 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 20:15:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/13 20:46:42 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/14 21:10:45 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "so_long.h"
 
@@ -37,27 +35,51 @@ void	init_board(t_board *board)
 	board->im.ex = NULL;
 	board->collect = 0;
 	board->mlx = NULL;
+	board->moves = 0;
+	board->flag = 0;
+}
+void	ft_key_hook(mlx_key_data_t keydata, void *b)
+{
+	t_board	*copy_b;
+
+	copy_b = b;
+	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
+		ft_move_player(copy_b, 1, 0);
+	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
+		ft_move_player(copy_b, 0, -1);
+	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
+		ft_move_player(copy_b, -1, 0);
+	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
+		ft_move_player(copy_b, 0, 1);
+	if (keydata.key == MLX_KEY_D && keydata.action == MLX_REPEAT)
+		ft_move_player(copy_b, 1, 0);
+	if (keydata.key == MLX_KEY_W && keydata.action == MLX_REPEAT)
+		ft_move_player(copy_b, 0, -1);
+	if (keydata.key == MLX_KEY_A && keydata.action == MLX_REPEAT)
+		ft_move_player(copy_b, -1, 0);
+	if (keydata.key == MLX_KEY_S && keydata.action == MLX_REPEAT)
+		ft_move_player(copy_b, 0, 1);
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+		exit(0);
 }
 
-void ft_game (t_board *board)
+void	ft_accion_player(t_board *b)
 {
-	//t_image	*g_img;
-	
-	ft_map_size(board);
-	board->mlx = mlx_init(board->dim.x * P, board->dim.y * P, "Rainbow Run", false);
-	if (!board->mlx)
+	mlx_key_hook(b->mlx, &ft_key_hook, b);
+}
+
+void	ft_game(t_board *b)
+{
+	ft_map_size(b);
+	b->mlx = mlx_init(b->dim.x * P, b->dim.y * P, "Rainbow Run", false);
+	if (!b->mlx)
 	{
-		ft_free_matrix(board->map);
+		ft_free_matrix(b->map);
 		ft_error(5);
 	}
-	ft_load_board(board);
-	ft_draw_playground(board, board->map);
-	ft_accion_player(board);
-	//g_img = mlx_new_image(board->mlx, 128, 128);
-	//mlx_loop_hook(board->mlx, g_img, board);
-	mlx_loop(board->mlx);
-	mlx_terminate(board->mlx);
+	ft_load_board(b);
+	ft_draw_playground(b, b->map);
+	ft_accion_player(b);
+	mlx_loop(b->mlx);
+	mlx_terminate(b->mlx);
 }
-
-
- 

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:22:29 by cova              #+#    #+#             */
-/*   Updated: 2023/12/09 15:09:15 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/14 19:46:10 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_print_map(char **str)
+/* void	ft_print_map(char **str)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ void	ft_print_map(char **str)
 			i++;
 		}
 	}
-}
+} */
 
 int	ft_matrix_lines(char **map)
 {

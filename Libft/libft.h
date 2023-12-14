@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 13:32:10 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/09 15:10:49 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/14 18:05:48 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int			ft_isascii(int c);
 int			ft_isprint(int c);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
+void		ft_putnbr(int nb);
 void		ft_bzero(void *s, size_t n);
 int			ft_strlen(const char *str);
 char		*ft_strchr(const char *s, int c);

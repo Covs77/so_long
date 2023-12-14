@@ -6,13 +6,12 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 20:10:47 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/13 20:13:08 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/14 19:29:28 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
- 
 void	ft_draw_map(t_board *b, char **map, int i, int j)
 {
 	if (map[i][j] == '1')
@@ -29,10 +28,9 @@ void	ft_draw_map(t_board *b, char **map, int i, int j)
 	}
 	if (map[i][j] == 'C')
 	{
-		if ((mlx_image_to_window(b->mlx, b->im.co, \
-		j * P , i * P)) < 0)
+		if ((mlx_image_to_window(b->mlx, b->im.co, j * P, i * P)) < 0)
 			ft_error(11);
-	} 
+	}
 }
 
 void	ft_draw_play_ex(t_board *b, char **map, int i, int j)
@@ -45,12 +43,10 @@ void	ft_draw_play_ex(t_board *b, char **map, int i, int j)
 	}
 	if (map[i][j] == 'E')
 	{
-		if ((mlx_image_to_window(b->mlx, b->im.ex, \
-		j * P , i * P)) < 0)
+		if ((mlx_image_to_window(b->mlx, b->im.ex, j * P, i * P)) < 0)
 			ft_error(11);
-	} 
+	}
 }
-
 
 void	ft_draw_playground(t_board *board, char **map)
 {

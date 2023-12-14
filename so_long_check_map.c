@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_check_map.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:32:32 by cova              #+#    #+#             */
-/*   Updated: 2023/12/09 14:26:58 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/14 19:53:07 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_check_lines_map(char **map)
 		ft_error(5);
 	}
 	while (i < nmb_lines)
-	{	
+	{
 		if (ft_strlen(map[i]) < 5)
 		{
 			ft_free_matrix(map);
