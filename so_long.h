@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:01:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/14 21:19:28 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:37:51 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,8 @@ void	ft_key_hook(mlx_key_data_t keydata, void *b);
 void	ft_accion_player(t_board *b);
 void	ft_count_collect(t_board *b);
 void	ft_print_moves(int moves);
-//void	ft_move(t_board *b, t_point pos, int x, int y);
+void	flood_fill_2(char **map, t_point size, t_point pos);
+void	ft_check_out(char **map, t_point *size, t_point *pos, t_point *pos_exit);
 void	ft_l(void);
 
 #endif

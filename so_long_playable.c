@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 13:39:46 by cova              #+#    #+#             */
-/*   Updated: 2023/12/14 19:33:47 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:40:22 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	ft_collect_all(char **map_copy, char **map)
 
 	i = 0;
 	j = 0;
+	
 	while (map[i] != NULL && map_copy[i] != NULL)
 	{
 		while (map[i][j] != '\0' && map_copy[i][j] != '\0')
@@ -79,8 +80,7 @@ void	ft_playable_map(char **map)
 	t_point	*pos_player;
 	t_point	*pos_exit;
 	t_point	*size;
-	char	**map_copy;
-
+	
 	ft_init_pos (&pos_player);
 	ft_init_pos (&pos_exit);
 	ft_init_pos (&size);
@@ -93,11 +93,7 @@ void	ft_playable_map(char **map)
 		ft_free_matrix(map);
 		ft_error(5);
 	}
-	map_copy = ft_copy_map(map);
-	flood_fill (map_copy, *size, *pos_player);
-	ft_way_out(map_copy, *pos_exit);
-	ft_collect_all(map_copy, map);
-	ft_free_matrix (map_copy);
+	ft_check_out(map, size, pos_player, pos_exit);
 	free (size);
 	free (pos_player);
 	free (pos_exit);
@@ -106,8 +102,9 @@ void	ft_playable_map(char **map)
 void	flood_fill(char **map, t_point size, t_point pos)
 {
 	if (pos.x < 0 || pos.x >= size.x || \
-		pos.y < 0 || pos.y >= size.y || \
-		map[pos.y][pos.x] == '1' || map[pos.y][pos.x] == '.')
+		pos.y < 0 || pos.y >= size.y || map[pos.y][pos.x] == 'E'|| \
+		map[pos.y][pos.x] == '1'|| \
+		map[pos.y][pos.x] == '.')
 		return ;
 	map[pos.y][pos.x] = '.';
 	flood_fill(map, size, (t_point){pos.x - 1, pos.y});
@@ -115,3 +112,19 @@ void	flood_fill(char **map, t_point size, t_point pos)
 	flood_fill(map, size, (t_point){pos.x, pos.y - 1});
 	flood_fill(map, size, (t_point){pos.x, pos.y + 1});
 }
+
+void	flood_fill_2(char **map, t_point size, t_point pos)
+{
+	if (pos.x < 0 || pos.x >= size.x || \
+		pos.y < 0 || pos.y >= size.y || \
+		map[pos.y][pos.x] == '1' || \
+		map[pos.y][pos.x] == '.')
+		return ;
+	map[pos.y][pos.x] = '.';
+	flood_fill_2(map, size, (t_point){pos.x - 1, pos.y});
+	flood_fill_2(map, size, (t_point){pos.x + 1, pos.y});
+	flood_fill_2(map, size, (t_point){pos.x, pos.y - 1});
+	flood_fill_2(map, size, (t_point){pos.x, pos.y + 1});
+}
+
+

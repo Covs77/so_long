@@ -6,7 +6,7 @@
 #    By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 19:54:55 by cleguina          #+#    #+#              #
-#    Updated: 2023/12/14 19:38:16 by cleguina         ###   ########.fr        #
+#    Updated: 2023/12/15 19:58:08 by cleguina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,8 @@ RESET	:= \033[0m
 NAME = so_long
 
 # compilador
-CC = gcc
-CFLAGS = -g -Wall -Werror -Wextra
+CC = gcc #-g
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
 
 LIB = ar rcs
 
