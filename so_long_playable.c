@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 13:39:46 by cova              #+#    #+#             */
-/*   Updated: 2023/12/15 18:40:22 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:54:22 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,6 @@ char	**ft_copy_map(char **map)
 	return (map_copy);
 }
 
-void	ft_way_out(char **map, t_point pos)
-{
-	if (map[pos.y][pos.x] != '.')
-	{
-		ft_free_matrix(map);
-		ft_error(10);
-	}
-}
-
 void	ft_collect_all(char **map_copy, char **map)
 {
 	int	i;
@@ -54,7 +45,6 @@ void	ft_collect_all(char **map_copy, char **map)
 
 	i = 0;
 	j = 0;
-	
 	while (map[i] != NULL && map_copy[i] != NULL)
 	{
 		while (map[i][j] != '\0' && map_copy[i][j] != '\0')
@@ -80,7 +70,7 @@ void	ft_playable_map(char **map)
 	t_point	*pos_player;
 	t_point	*pos_exit;
 	t_point	*size;
-	
+
 	ft_init_pos (&pos_player);
 	ft_init_pos (&pos_exit);
 	ft_init_pos (&size);
@@ -102,8 +92,8 @@ void	ft_playable_map(char **map)
 void	flood_fill(char **map, t_point size, t_point pos)
 {
 	if (pos.x < 0 || pos.x >= size.x || \
-		pos.y < 0 || pos.y >= size.y || map[pos.y][pos.x] == 'E'|| \
-		map[pos.y][pos.x] == '1'|| \
+		pos.y < 0 || pos.y >= size.y || map[pos.y][pos.x] == 'E' || \
+		map[pos.y][pos.x] == '1' || \
 		map[pos.y][pos.x] == '.')
 		return ;
 	map[pos.y][pos.x] = '.';
@@ -126,5 +116,3 @@ void	flood_fill_2(char **map, t_point size, t_point pos)
 	flood_fill_2(map, size, (t_point){pos.x, pos.y - 1});
 	flood_fill_2(map, size, (t_point){pos.x, pos.y + 1});
 }
-
-

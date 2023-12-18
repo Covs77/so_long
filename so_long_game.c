@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 20:15:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/14 21:10:45 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:58:26 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	init_board(t_board *board)
 	board->moves = 0;
 	board->flag = 0;
 }
+
 void	ft_key_hook(mlx_key_data_t keydata, void *b)
 {
 	t_board	*copy_b;

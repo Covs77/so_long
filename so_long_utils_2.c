@@ -6,17 +6,17 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 13:44:47 by cova              #+#    #+#             */
-/*   Updated: 2023/12/15 20:52:38 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:01:10 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_print_pos(t_point pos)
+/* void	ft_print_pos(t_point pos)
 {
 	printf("pos[X]: %d\n", pos.x);
 	printf("pos[Y]: %d\n", pos.y);
-}
+} */
 
 void	ft_init_pos(t_point **pos)
 {

@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:01:04 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/15 18:37:51 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:00:27 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,13 @@ void	ft_draw_play_ex(t_board *board, char **map, int i, int j);
 void	ft_draw_playground(t_board *b, char **map);
 void	ft_move_player(t_board *b, int x, int y);
 void	ft_key_hook(mlx_key_data_t keydata, void *b);
+void	ft_key_hook_exit(mlx_key_data_t keydata, void *b);
 void	ft_accion_player(t_board *b);
 void	ft_count_collect(t_board *b);
 void	ft_print_moves(int moves);
 void	flood_fill_2(char **map, t_point size, t_point pos);
-void	ft_check_out(char **map, t_point *size, t_point *pos, t_point *pos_exit);
-void	ft_l(void);
+void	ft_check_out(char **map, t_point *size, t_point *pos, t_point *p_ex);
+//void	ft_l(void);
+void	ft_end_game(t_board *b);
 
 #endif

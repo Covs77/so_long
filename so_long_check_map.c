@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:32:32 by cova              #+#    #+#             */
-/*   Updated: 2023/12/15 19:59:42 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:00:06 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,13 @@ void	ft_check_collectibles(char *str)
 	ft_error(8);
 }
 
-
-void ft_check_out(char **map, t_point *size, t_point *pos, t_point *pos_exit)
+void	ft_check_out(char **map, t_point *size, t_point *pos, t_point *p_ex)
 {
-	char **map_copy;
-	
+	char	**map_copy;
+
 	map_copy = ft_copy_map(map);
 	flood_fill_2(map_copy, *size, *pos);
-	ft_way_out(map_copy, *pos_exit);
+	ft_way_out(map_copy, *p_ex);
 	ft_free_matrix (map_copy);
 	map_copy = ft_copy_map(map);
 	flood_fill (map_copy, *size, *pos);
@@ -104,3 +103,11 @@ void ft_check_out(char **map, t_point *size, t_point *pos, t_point *pos_exit)
 	ft_free_matrix (map_copy);
 }
 
+void	ft_way_out(char **map, t_point pos)
+{
+	if (map[pos.y][pos.x] != '.')
+	{
+		ft_free_matrix(map);
+		ft_error(10);
+	}
+}

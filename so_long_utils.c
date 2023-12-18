@@ -6,13 +6,13 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 12:22:29 by cova              #+#    #+#             */
-/*   Updated: 2023/12/15 17:41:38 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:00:42 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_print_map(char **str)
+/* void	ft_print_map(char **str)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ void	ft_print_map(char **str)
 			i++;
 		}
 	}
-}
+} */
 
 int	ft_matrix_lines(char **map)
 {
